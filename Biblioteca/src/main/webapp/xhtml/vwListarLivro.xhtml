@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head>
+<link rel="StyleSheet" type="text/css" href="../../css/estilo.css"></link>
+<script language="javascript" src="../../js/listarLivro.js"
+	charset="ISO-8859-1" />
+</head>
+<body onload="desmarcarTodos()">
+
+	<f:view>
+		<h:form id="formulario">
+
+			<input type="hidden" id="id" name="id" />
+			<br />
+			<h:dataTable border="1" styleClass="sample" id="livros"
+				value="#{livroController.listaLivroBean}" var="livro">
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Nome Livro" />
+					</f:facet>
+					<h:inputHidden value="#{livro.id}" />
+					<h:outputLabel value="#{livro.nome_livro}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Assunto" />
+					</f:facet>
+					<h:outputLabel value="#{livro.assunto}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Número de Páginas" />
+					</f:facet>
+					<h:outputLabel value="#{livro.numero_pagina}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Data_Inicio" />
+
+					</f:facet>
+					<h:outputLabel value="#{livro.data_inicio}">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputLabel>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Data_Entrega" />
+
+					</f:facet>
+					<h:outputLabel value="#{livro.data_entrega}">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputLabel>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Preço" />
+					</f:facet>
+					<h:outputLabel value="#{livro.preco}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="" />
+					</f:facet>
+					<h:message for="#{livroController}" />
+					<h:selectOneRadio id="selecionado"
+						value="#{livroController.livroBean.id}"
+						onclick="selecionarItem('id',this);">
+						<f:selectItem itemValue="#{livro.id}" />
+					</h:selectOneRadio>
+				</h:column>
+
+			</h:dataTable>
+
+			<br />
+			<h:commandButton styleClass="button" value="Novo"
+				action="#{livroController.criar}" />
+			<h:commandButton styleClass="button" value="Editar"
+				action="#{livroController.consultar}"
+				onclick="return validarSelecionado()" />
+			<h:messages />
+			<h:commandButton styleClass="button" value="Excluir"
+				action="#{livroController.excluir}"
+				onclick="return validarSelecionado()" />
+			<h:messages />
+		</h:form>
+	</f:view>
+
+</body>
+
+</html>

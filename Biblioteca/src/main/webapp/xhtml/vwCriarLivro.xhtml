@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head>
+<link rel="StyleSheet" type="text/css" href="../../css/estilo.css"></link>
+<script language="javascript" src="../../js/criarLivro.js"
+	charset="ISO-8859-1" />
+</head>
+<body>
+	<f:view>
+		<h:form id="formulario">
+			<h:graphicImage url="../imagens/livro.jpg"></h:graphicImage>
+			<br />
+			<h:inputHidden value="#{livroController.livroBean.id}" />
+			<h:outputLabel value="Nome Livro:" />
+			<h:inputText id="nome_livro"
+				value="#{livroController.livroBean.nome_livro}" size="50"
+				maxlength="50" />
+			<br></br>
+			<h:outputLabel value="Assunto:" />
+			<h:inputText id="assunto"
+				value="#{livroController.livroBean.assunto}" size="50"
+				maxlength="50" />
+			<br></br>
+			<h:outputLabel value="Numero de Páginas:" />
+			<h:inputText id="numero_pagina"
+				value="#{livroController.livroBean.numero_pagina}" size="7"
+				maxlength="7" />
+			<br></br>
+			<br></br>
+			<h:outputLabel value="Data_Inicio:" />
+			<h:inputText id="data_inicio"
+				value="#{livroController.livroBean.data_inicio}" size="10"
+				maxlength="10">
+				<f:convertDateTime pattern="dd/MM/yyyy" />
+			</h:inputText>
+			<br></br>
+			<h:outputLabel value="Data_Entrega:" />
+			<h:inputText id="data_entrega"
+				value="#{livroController.livroBean.data_entrega}" size="10"
+				maxlength="10">
+				<f:convertDateTime pattern="dd/MM/yyyy" />
+			</h:inputText>
+			<br></br>
+			<h:outputLabel value="Preço:" />
+			<h:inputText id="preco"
+				value="#{livroController.livroBean.preco}" size="10"
+				maxlength="10" />
+
+			<br />
+			<h:commandButton styleClass="button" value="Salvar"
+				action="#{livroController.incluir}"
+				onclick="return validarFormulario();" />
+		</h:form>
+	</f:view>
+</body>
+
+</html>

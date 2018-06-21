@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head>
+<link rel="StyleSheet" type="text/css" href="css/estilo.css"></link>
+</head>
+<body>
+	<f:view>
+		<h:form id="formulario">
+			<h1>TRABALHO FINAL DE WEB</h1>
+			<br> </br>
+			<h1>ALUNO CARLOS ALBERTO ALVARENGA JÚNIOR</h1>
+			<br />
+			<h1>BIBLIOTECA</h1>
+			<br />
+			<h:commandButton styleClass="button"
+				action="#{livroController.listar}" value="Listar Livro" id="listar" />
+			<h:messages />
+		</h:form>
+	</f:view>
+	<h:graphicImage url="imagens/livro.jpg"></h:graphicImage>
+</body>
+
+</html>
